@@ -1,0 +1,16 @@
+# Active le moteur de réécriture
+RewriteEngine On
+
+# Réécriture de la base de l'URL
+RewriteBase /api/
+
+# Si l'URL commence par /api/public/ redirige vers la racine sans /public
+RewriteCond %{REQUEST_URI} ^/api/public/
+RewriteRule ^api/public/(.*)$ /api/$1 [L,NC,R=301]
+
+# Si le fichier demandé existe, ne rien faire (ne pas réécrire)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirige toutes les requêtes vers index.php pour traitement
+RewriteRule ^(.+)$ public/index.php/$1 [QSA,L]
