@@ -100,6 +100,8 @@ class MusiquesController extends Controller
         // Capturer toute erreur interne et renvoyer un message d'erreur
         http_response_code(500);
         echo json_encode(['error' => 'Une erreur est survenue sur le serveur: ' . $e->getMessage()]);
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
     }
 }
 
@@ -149,23 +151,6 @@ class MusiquesController extends Controller
     // Supprimer une musique
     public function delete(int|string $id)
     {
-        error_log("Traitement de la requête OPTIONS commencé.");
-
-    if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-        // Enregistrer les en-têtes envoyés dans le log
-        error_log("Requête OPTIONS : En-têtes de la requête : " . json_encode(getallheaders()));
-        
-        // Ajout des en-têtes CORS
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: Content-Type, Authorization");
-        header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS");
-        header("Content-Type: application/json");
-    
-        // Réponse à la requête OPTIONS
-        http_response_code(200); // Code de réponse OK
-        error_log("Requête OPTIONS : Réponse envoyée avec succès.");
-        exit(0); // Fin de la requête ici
-    }
 
         if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
             http_response_code(405);

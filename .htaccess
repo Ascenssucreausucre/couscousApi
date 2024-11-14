@@ -1,6 +1,8 @@
 # Active le moteur de réécriture
 RewriteEngine On
 
+Options -Indexes
+
 # Réécriture de la base de l'URL
 RewriteBase /api/
 
@@ -14,3 +16,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Redirige toutes les requêtes vers index.php pour traitement
 RewriteRule ^(.+)$ public/index.php/$1 [QSA,L]
+
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
