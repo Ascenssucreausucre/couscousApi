@@ -4,11 +4,11 @@ RewriteEngine On
 Options -Indexes
 
 # Réécriture de la base de l'URL
-RewriteBase /api/
+RewriteBase /apiTournois/
 
 # Si l'URL commence par /api/public/ redirige vers la racine sans /public
-RewriteCond %{REQUEST_URI} ^/api/public/
-RewriteRule ^api/public/(.*)$ /api/$1 [L,NC,R=301]
+RewriteCond %{REQUEST_URI} ^/apiTournois/public/
+RewriteRule ^apiTournois/public/(.*)$ /apiTournois/$1 [L,NC,R=301]
 
 # Si le fichier demandé existe, ne rien faire (ne pas réécrire)
 RewriteCond %{REQUEST_FILENAME} !-f
