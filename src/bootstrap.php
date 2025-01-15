@@ -10,6 +10,15 @@ declare(strict_types=1);
 */
 require '../vendor/autoload.php';
 
+use Dotenv\Dotenv;
+
+// Charger les variables du fichier .env
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+// Accéder aux variables
+$bearerToken = $_ENV['BEARER_TOKEN'];
+
 /*
   ==2==
   Intégrer les constantes diverses et celles de configuration pour la base
@@ -120,6 +129,13 @@ switch ($routeInfo[0]) {
 
                 die();
             }
+            // Convertir les paramètres en entiers si nécessaire
+            foreach ($vars as $key => $value) {
+                if (ctype_digit($value)) {
+                    $vars[$key] = (int)$value;
+                }
+            }
+
             // appeler la méthode du contrôleur
             $controller->{$method}(...array_values($vars));
             exit();

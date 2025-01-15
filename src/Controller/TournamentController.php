@@ -45,10 +45,20 @@ class TournamentController extends Controller
     /**
      * Obtenir tous les tournois publics.
      */
-    public function getPublicTournaments()
+    public function getAllTournaments()
     {
         try {
             $tournaments = Tournament::getInstance()->findAllBy(['is_public' => true]);
+            return $this->json(['success' => true, 'data' => $tournaments]);
+        } catch (\Exception $e) {
+            return $this->json(['error' => $e->getMessage()]);
+        }
+    }
+
+    public function getTournamentsByPage(int $page, int $perPage)
+    {
+        try {
+            $tournaments = Tournament::getInstance()->findTournamentsByPage($page, $perPage);
             return $this->json(['success' => true, 'data' => $tournaments]);
         } catch (\Exception $e) {
             return $this->json(['error' => $e->getMessage()]);

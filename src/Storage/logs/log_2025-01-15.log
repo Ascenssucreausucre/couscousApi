@@ -1,0 +1,76 @@
+[2025-01-15 13:23:56]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 39
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'Attempt to read property "1" on string'
+[2025-01-15 13:24:11]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 39
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'Attempt to read property "1" on string'
+[2025-01-15 13:24:43]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 39
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'Attempt to read property "1" on string'
+[2025-01-15 13:25:26]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 39
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'Attempt to read property "1" on string'
+[2025-01-15 13:26:06]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 39
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'Attempt to read property "1" on string'
+[2025-01-15 13:38:42]	[ALERT]	404 - erreur dans le processus de traitement du routage
+    routeInfo: array(
+        0 => 1,
+        1 => 'participant@addParticipant',
+        2 => array(
+            'tournament_id' => '1',
+        ),
+    )
+    exception-line: 54
+    exception-file: 'C:\xampp\htdocs\apiTournois\src\Controller\ParticipantController.php'
+    exception-code: 'move_uploaded_file(C:\xampp\htdocs\apiTournois\src\Controller/uploads/participant_6787ac52ce2c62.31010711.jpg): Failed to open stream: No such file or directory'
+[2025-01-15 14:13:26]	[ALERT]	404 - commande non existante :: /apiTournois/caca
+[2025-01-15 14:29:52]	[ALERT]	404 - commande non existante :: /apiTournois/caca
+[2025-01-15 14:52:03]	[ALERT]	404 - commande non existante :: /tournaments/1/10
+[2025-01-15 14:52:37]	[ALERT]	404 - commande non existante :: /tournaments/1/10
+[2025-01-15 14:53:05]	[ALERT]	404 - commande non existante :: /tournaments/page=1/count=10
+[2025-01-15 14:53:28]	[ALERT]	404 - commande non existante :: /tournaments/page=1/count=10
+[2025-01-15 14:53:47]	[ALERT]	404 - commande non existante :: /tournaments/page=1/count=10
+[2025-01-15 14:55:00]	[ALERT]	404 - commande non existante :: /tournaments/page=1/count=10
+[2025-01-15 16:00:23]	[ALERT]	404 - commande non existante :: /
+[2025-01-15 16:00:31]	[ALERT]	404 - commande non existante :: /

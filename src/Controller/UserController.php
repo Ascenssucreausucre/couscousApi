@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\User;
+use Firebase\JWT\JWT;
 
 class UserController extends Controller
 {
@@ -108,19 +109,39 @@ class UserController extends Controller
             }
 
             try {
+                // Trouver l'utilisateur par son email
                 $user = User::getInstance()->findOneBy(['email' => $email]);
 
                 if (!$user || !password_verify($password, $user['password_hash'])) {
                     throw new \Exception("Identifiants invalides.");
                 }
 
-                // Stocker les informations utilisateur dans la session
-                $_SESSION['user'] = [
+                // Définir les données du payload du JWT
+                $payload = [
                     'user_id' => $user['user_id'],
                     'username' => $user['username'],
+                    'email' => $user['email'],
+                    'iat' => time(), // Timestamp de la création du token
+                    'exp' => time() + 3600, // Expiration dans 1 heure
                 ];
 
-                return $this->json(['success' => true, 'user' => $_SESSION['user']]);
+                // Clé secrète utilisée pour signer le JWT
+                $key = $_ENV['BEARER_TOKEN'] ?? null; // Clé secrète, récupérée depuis .env ou définie dans un autre endroit
+
+                if (!$key || !is_string($key)) {
+                    throw new \Exception("La clé secrète pour le JWT est invalide.");
+                }
+
+                // Générer le JWT avec l'algorithme HS256
+                $jwt = JWT::encode($payload, $key, 'HS256');  // Ajout de l'algorithme
+
+                // Retourner le JWT en réponse
+                return $this->json([
+                    'success' => true,
+                    'message' => 'Connexion réussie',
+                    'token' => $jwt
+                ]);
+
             } catch (\Exception $e) {
                 return $this->json(['error' => $e->getMessage()]);
             }

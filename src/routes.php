@@ -8,16 +8,15 @@ les routes
 */
 
 return [
-    ['GET', '/tournaments', 'tournament@getPublicTournaments'],
+    ['GET', '/tournaments', 'tournament@getAllTournaments'],
+    ['GET', '/tournaments/page/{page:\d+}/count/{per_page:\d+}', 'tournament@getTournamentsByPage'],
+    ['GET', '/user/profile/{user_id:\d+}', 'user@getUserProfile'],
+    ['GET', '/tournament/{tournament_id:\d+}/specs', 'tournament@getTournament'],
+    ['GET', '/tournament/{tournament_id:\d+}', 'participant@getAllParticipants'],
+    ['GET', '/users', 'user@index'],
 
     ['POST', '/user/register', 'user@register'],
     ['POST', '/user/login', 'user@login'],
     ['POST', '/tournament/create', 'tournament@createTournament'],
     ['POST', '/tournament{tournament_id:\d+}/add', 'participant@addParticipant'],
-
-    ['GET', '/user/profile/{user_id:\d+}', 'user@getUserProfile'],
-    ['GET', '/tournament/{tournament_id:\d+}/specs', 'tournament@getTournament'],
-    ['GET', '/tournament/{participant_id:\d+}', 'participant@getParticipants'],
-    ['GET', '/users', 'user@index'],
-
 ];

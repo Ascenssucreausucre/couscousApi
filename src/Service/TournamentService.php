@@ -14,10 +14,6 @@ class TournamentService
         return $tournament && $tournament['is_open'];
     }
 
-    public function participantExists(int $tournamentId, string $name){
-        $tournament = Tournament::getInstance()->findOneBy(['tournament_id'=>$tournamentId]); // à terminer
-    }
-
     public function hasSpaceForMoreParticipants($tournamentId) {
         $participantCount = Participant::countByTournamentId($tournamentId);
         $tournament = Tournament::findById($tournamentId);

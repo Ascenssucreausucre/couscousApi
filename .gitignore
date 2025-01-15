@@ -1,2 +1,3 @@
-/src/config
-/src/vendor
+/vendor
+/src/Config
+.env
